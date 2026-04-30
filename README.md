@@ -1,5 +1,13 @@
 # Blind Navigation App - Frontend + Backend
 
+## App Description
+
+The Blind Navigation App is an AI-powered assistive mobile application designed to help visually impaired users navigate their surroundings more safely. The app uses the phone camera to capture real-time photo frames and sends them to a backend server for object detection using YOLO.
+
+The backend analyzes the uploaded frame, detects nearby objects or obstacles, estimates their direction such as left, center, or right, and identifies the approximate distance level as near, medium, or far. Based on this analysis, the backend returns a navigation guidance message to the mobile app.
+
+The frontend then converts this guidance text into voice output using text-to-speech, allowing the user to hear helpful navigation instructions through the phone speaker. This makes the app useful as a prototype for smart blind navigation support, combining computer vision, mobile development, and voice-based accessibility features.
+
 This package contains:
 
 - `blind-nav-frontend/` -> Expo React Native app
@@ -25,6 +33,7 @@ npm install
 ```
 
 ### Important: set the backend IP
+
 Open this file:
 
 ```text
@@ -63,6 +72,7 @@ python -m venv venv
 ### Activate the virtual environment
 
 #### PowerShell
+
 ```powershell
 .\venv\Scripts\Activate.ps1
 ```
@@ -74,9 +84,11 @@ pip install -r requirements.txt
 ```
 
 ### Create `.env`
+
 Copy `.env.example` to `.env`
 
 #### PowerShell
+
 ```powershell
 Copy-Item .env.example .env
 ```
@@ -99,6 +111,7 @@ If both open, backend is running.
 ## 4. What the app does
 
 ### Frontend
+
 - app starts with automatic 3-second countdown
 - camera opens automatically
 - captures a photo frame every 3.5 seconds
@@ -108,6 +121,7 @@ If both open, backend is running.
 - closes after 10 seconds of inactivity with voice announcement
 
 ### Backend
+
 - receives uploaded frame
 - runs YOLO object detection
 - estimates object direction: left / center / right
@@ -171,11 +185,13 @@ blind-nav-backend/
 ## 8. Common issues
 
 ### Frontend cannot reach backend
+
 - check the IP in `src/services/api.ts`
 - make sure laptop firewall is not blocking port `8000`
 - make sure phone and laptop are on same Wi-Fi
 
 ### Backend import/model issue
+
 Run again:
 
 ```bash
@@ -183,6 +199,7 @@ pip install -r requirements.txt
 ```
 
 ### Expo cache issue
+
 Run:
 
 ```bash
